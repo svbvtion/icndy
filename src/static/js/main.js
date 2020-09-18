@@ -12,14 +12,18 @@ const menu = document.querySelector('.hero__menu');
 const hashtagHTML = document.querySelector('.insta__hashtag');
 
 
+
+/*----- VARIABLES -----*/
+
+const paintColorRGB = [26, 26, 26]
+
 /*----- LISTENERS -----*/
 
 burger.addEventListener('click', addActiveClass);
 
 document.addEventListener('scroll', function(e) {
-	paintElement(heroTop, [26, 26, 26])
+	paintElement(heroTop, paintColorRGB)
 });
-
 
 /*----- FUNCTIONS -----*/
 
@@ -38,6 +42,11 @@ function paintElement(element, arr) {
 	element.style.backgroundColor = `rgba(${arr[0]},${arr[1]},${arr[2]}, ${posWindow / elementHeight})`
 	
 }
+
+// check paint-level right after page loaded
+
+paintElement(heroTop, paintColorRGB)
+
 
 //print hashtag animation
 
