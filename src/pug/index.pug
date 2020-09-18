@@ -9,8 +9,152 @@ html(lang="en")
 		link(rel="stylesheet" type="text/css" href="static/css/normalize.css")
 		link(rel="stylesheet" type="text/css" href="static/css/styles.css")
 	body
-		header.header
-
+		
+		header.hero
+			.hero__bg
+				+webp('hero__img', 'bg', 'png', 'background')
+			.hero__content
+				.hero__top
+					.hero__top-box
+						.wrapper
+							.hero__top-body
+								.hero__logo
+									a.logo(href="#")
+										+webp('logo__img', 'logo', 'png', 'logo')
+								.burger
+									span
+								.hero__menu
+									
+									nav.menu
+										ul.menu__list
+											li.menu__item
+												a.menu__link(href="#") mens
+											li.menu__item
+												a.menu__link(href="#") womens
+											li.menu__item
+												a.menu__link(href="#") brands
+											li.menu__item
+												a.menu__link(href="#") sale
+											li.menu__item
+												a.menu__link(href="#") news
+											
+				.hero__text
+					.wrapper
+						.hero__title
+							h1.title STÜSSY2020
+						.hero__link
+							a.link(href="#") SHOP NOW
+				.hero__arrow
+					a.arrow(href="#")
 		main.content
+			section.shops
+				.wrapper
+					.shops__content
+						h5.shops__title 
+						.shops__grid
+							.shops__row
+								a.shop.shop__big(href="#")
+									.shop__bg
+										+webp('shop__img', 'gourmet', 'png', 'shop')
+									.shop__content
+										.shop__logo
+											+webp('shop__logo-img', 'gourmet-logo', 'png', 'logo')
+										span.shop__title shop gourmet
+								a.shop(href="#")
+									.shop__bg
+										+webp('shop__img', 'carhartt', 'png', 'shop')
+									.shop__content
+										.shop__logo
+											+webp('shop__logo-img', 'carhartt-logo', 'png', 'logo')
+										span.shop__title shop carhartt
+
+								a.shop(href="#")
+									.shop__bg
+										+webp('shop__img', 'adidas', 'png', 'shop')
+									.shop__content
+										.shop__logo
+											+webp('shop__logo-img', 'adidas-logo', 'png', 'logo')
+										span.shop__title shop adidas
+
+
+							.shops__row
+								a.shop.shop__tall(href="#")
+									.shop__bg
+										+webp('shop__img', '10deep', 'png', 'shop')
+									.shop__content
+										.shop__logo
+											+webp('shop__logo-img', '10deep-logo', 'png', 'logo')
+										span.shop__title shop 10deep
+								a.shop.shop__tall(href="#")
+									.shop__bg
+										+webp('shop__img', 'palace', 'png', 'shop')
+									.shop__content
+										.shop__logo
+											+webp('shop__logo-img', 'palace-logo', 'png', 'logo')
+										span.shop__title shop palace
+								a.shop.shop__tall(href="#")
+									.shop__bg
+										+webp('shop__img', 'nike', 'png', 'shop')
+									.shop__content
+											.shop__logo
+												+webp('shop__logo-img', 'nike-logo', 'png', 'logo')
+											span.shop__title shop nike
+
+			section.insta
+				.insta__bg
+					.mosaic
+						.mosaic__item
+							+webp('mosaic__img', 'insta_1', 'png', 'mosaic')
+						.mosaic__item
+							+webp('mosaic__img', 'insta_2', 'png', 'mosaic')
+						.mosaic__item
+							+webp('mosaic__img', 'insta_3', 'png', 'mosaic')
+						.mosaic__item
+							+webp('mosaic__img', 'insta_4', 'png', 'mosaic')
+						.mosaic__item
+							+webp('mosaic__img', 'insta_5', 'png', 'mosaic')
+						.mosaic__item
+							+webp('mosaic__img', 'insta_6', 'png', 'mosaic')
+						.mosaic__item
+							+webp('mosaic__img', 'insta_7', 'png', 'mosaic')
+						.mosaic__item
+							+webp('mosaic__img', 'insta_8', 'png', 'mosaic')
+				.insta__content
+					.insta__title
+						h5.title follow us
+					.insta__link
+						a.link(href="#") #<span class='insta__hashtag'></span> 
+
+				
 
 		footer.footer
+			.wrapper
+				.footer__content
+					.footer__text
+						.footer__text_item
+							p.footer__copy.footer__item icndy2020
+						.footer__text_item
+							.footer__menu.footer__item
+								nav.footer-menu
+									ul.footer-menu__list
+										li.footer-menu__item
+											a.footer-menu__link(href="#") privacy
+										li.footer-menu__item
+											a.footer-menu__link(href="#") terms
+										li.footer-menu__item
+											a.footer-menu__link(href="#") shop
+										li.footer-menu__item
+											a.footer-menu__link(href="#") about
+										li.footer-menu__item
+											a.footer-menu__link(href="#") contacts
+					.footer__social.footer__item
+						.social
+							a.social__item(href="#")
+								+svg('ig', 'social__icon')
+							a.social__item(href="#")
+								+svg('fb', 'social__icon')
+							a.social__item(href="#")
+								+svg('twi', 'social__icon')
+	
+
+		script(src='static/js/main.js' type="module")

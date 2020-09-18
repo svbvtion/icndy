@@ -1,27 +1,58 @@
-include vars
+include arrs
 
 mixin svg(name,mod)
 		- mod = mod || ''
 		svg(class="icon icon-" + name + ' ' + mod)
 			use(xlink:href="static/img/svg/sprite.svg#" + name)
 
-mixin pet(name)
-	li.pet=name
 
-mixin menu(list)
-	nav.menu
-		ul.menu__list
-			each link, title in list
-				li.menu__item
-					a.menu__link(href= link)= title
+
+mixin menu(obj)
+	- let name = Object.keys(obj)[0]
+	- let vals = Object.keys(obj[name])
+	- let subclass = obj['subclass']
+	if(subclass != undefined)
+		nav(class=name+' '+subclass)
+			ul(class=name+"__list"+' '+subclass+"__list")
+				each val in vals
+					li(class=name+"__item"+' '+subclass+"__item")
+						if(obj[name][val] == '')
+							a(class=name+"__link"+' '+subclass+"__link" href="#")=val
+						else 
+							a(class=name+"__link"+' '+subclass+"__link" href=obj[name][val])=val
+	else
+		nav(class=name)
+			ul(class=name+"__list")
+				each val in vals
+					li(class=name+"__item")
+						if(obj[name][val] == '')
+							a(class=name+"__link" href="#")=val
+						else 
+							a(class=name+"__link" href=obj[name][val])=val
+		
+				
 
 mixin webp(classname, path, type, name)
 	picture
 		source(srcset='static/img/'+path + ".webp" type="image/webp")
 		img(class=classname, src='static/img/'+path + "."+type alt=name)
 
-mixin menu(className, arr)
-	ul(class=className+"__list")
-		each name in arr
-			li(class=className+"__item")
-				a(class=className+"__link" href="#")=name
+
+mixin shopsItem(arr)
+	each values, shop in arr
+		a(class='shop__item '+values['className'] href=values['link'])
+			.shops__bg
+				+webp('shop__bg_img', shop, 'png', 'shop '+shop)
+			.shops__naming
+				.shops__logo
+					+webp('shop__img', shop+'-logo', 'png', 'logo '+shop)
+				.shops__title='shop '+shop
+
+mixin mosaicLoop(count)
+	- let i = 1
+	while i <= count
+		.mosaic__item
+			+webp('mosaic__img', 'insta_'+i++, 'png', 'mosaic')
+
+mixin link(className, link, text)
+	a(class=className, href=link target='_blank')=text

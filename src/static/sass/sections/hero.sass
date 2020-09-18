@@ -1,0 +1,92 @@
+.hero
+	height: 100%
+	&__bg
+		background-color: $palette-bg-secondary
+		+bg-box
+	&__img
+		+bg-pic
+		opacity: .5
+	&__content
+		height: 100%
+		position: relative
+		padding: 0 0 9vh
+		+flex(space-between)
+		flex-direction: column
+		+phone
+			padding: 0 0 30px
+
+	&__top
+		height: 9vmin
+		+phone
+			height: 15vmin
+		&-box
+			position: fixed
+			padding: 20px 0
+			width: 100%
+			z-index: 50
+			
+			+r(900)
+				&:after
+					content: ''
+					position: absolute
+					left: 0
+					top: 0
+					height: 100%
+					width: 100%
+					background-color: $palette-bg-secondary
+					transform: translateX(100%)
+					+smooth(.3, ease-out)
+				&.active
+					&:after
+						left: 0
+						transform: translateX(0)				
+					
+			+phone
+				padding: 10px 0
+
+
+		&-body
+			+flex(space-between, center, wrap)
+			.burger
+				display: none
+				+r(900)
+					display: block
+
+
+	&__menu
+		+r(900)
+			position: absolute
+			right: -100%
+			width: 100%
+			padding: 20px
+			height: calc(100vh - 100%)
+			top: 100%
+			background-color: $palette-bg-primary
+			+smooth(.3, ease-out)
+			overflow: auto
+			+phone
+				padding: 20px 10px 20px
+			&.active
+				right: 0
+				position: absolute
+				top: 100%
+
+			.menu
+				&__item
+					padding: 10px 10px 15px
+					width: 100%
+					border-bottom: 1px solid lightgrey
+				&__link
+					color: #000
+					font-weight: 700
+					&:hover
+						color: $palette-txt-tertiary
+			
+	&__logo
+		z-index: 1			
+	&__text
+		text-align: center
+	&__title
+		margin-bottom: 3.5vh
+	&__arrow
+		text-align: center

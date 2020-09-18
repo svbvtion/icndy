@@ -9,3 +9,123 @@
 
 //svg
 @import 'sprite'
+
+
+@import 'sections/hero'
+@import 'sections/shop'
+@import 'sections/insta'
+@import 'sections/footer'
+
+
+body
+	+r(900)
+		&.lock
+			overflow: hidden
+.wrapper
+	max-width: 1495px
+	height: 100%
+	margin: 0 auto
+	+r(1535)
+		padding: 0 20px
+	+phone
+		padding: 0 10px
+
+.logo
+	height: 9vmin
+	max-width: 225px
+	display: block
+	&__img
+		height: 100%
+		max-width: 100%	
+		object-fit: contain
+.burger
+	height: 4vmax
+	width: 6vmax
+	position: relative
+
+	&:before, &:after, span
+		transition: all .3s ease
+		content: ''
+		display: block
+		position: absolute
+		height: 3px
+		width: 100%
+		top: 0%
+		bottom: 0
+		background-color: $palette-bg-primary
+		z-index: 1
+		+smooth
+
+	&:after
+		top: 100%
+		transform: translateY(-100%)
+
+	span
+		width: 70%
+		right: 0
+		+centerY
+
+	&.active
+		&:before, &:after
+			top: 50%
+
+
+		&:before
+			transform: translateY(-50%) rotate(45deg)
+		&:after
+			transform: translateY(-50%) rotate(-45deg)
+		span
+			display: none
+.menu
+	&__list
+		list-style: none
+		+flex
+
+		+r(900)
+			flex-direction: column	
+
+	&__item
+		margin-left: 3vw
+
+		+r(900)
+			margin: 0 0 20px
+
+	&__link
+		font-size: 18px
+		color: $palette-txt-primary
+		text-transform: uppercase
+		font-weight: 400
+		letter-spacing: .44em
+		transition: all .3s ease
+		display: block
+
+		&:hover
+			color: $palette-txt-tertiary
+
+.title
+
+	font-size: 6vmin
+	color: $palette-txt-primary
+	font-weight: 300
+	letter-spacing: .5em
+	line-height: 1.5
+	text-transform: uppercase
+
+	+phone
+		font-size: 7vmin
+.link
+	font-size: 3vmin
+	color: $palette-txt-tertiary
+	letter-spacing: .4em
+	font-weight: 700
+	text-transform: uppercase
+	+phone
+		font-size: 4.5vmin
+
+.arrow
+	display: inline-block
+	height: 6vh
+	width: 6vh
+	border-right: 3px solid $palette-bg-primary
+	border-bottom: 3px solid $palette-bg-primary
+	transform: rotate(45deg)
